@@ -6,15 +6,6 @@ import java.util.Scanner;
 public class Fase2 {
 
 	public static void main(String[] args) {
-
-		int cincEU;
-		int deuEU;
-		int vintEU;
-		int cinquantaEU;
-		int centEU;
-		int dosCentsEU;
-		int cincCentsEU;
-		int total;
 		
 		List <String>  menu  = new ArrayList<>();
 		List <Integer> preus = new ArrayList<>();
