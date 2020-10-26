@@ -3,14 +3,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Fase3App {
 
 	public static void main(String[] args) {
 		
 		
 		List <String> carta   = new ArrayList<>();
-		List <Integer> preus = new ArrayList<>();
+		List <Integer> preus  = new ArrayList<>();
 		Restaurant restaurant = new Restaurant(carta, preus);
 
 		HashMap<String, Integer> plats_preus = new HashMap<>();
@@ -22,28 +21,33 @@ public class Fase3App {
 		plats_preus.put("flam", 25);
 		plats_preus.put("fruita", 35);
 		plats_preus.put("gelat", 45);
-
+		
+		/* Omplir els arrays "carta" i "preus" amb les entrades de "plats_preus"
+		*  usant el mètode de la classe Restaurant
+		*/
 		restaurant.ompleCartaIPreus(plats_preus);
 		
-		System.out.println("El nostre menú:\n");
-		for (int i = 0; i < carta.size(); i++) {
-			// Alinear els preus del menú.
-			int espais = 10 - carta.get(i).length();
-			String espaisMesGuio = new String(new char[espais]).replace("/0", " ") + "- ";
-			
-			System.out.println(carta.get(i) + espaisMesGuio + preus.get(i) + " €");
-		}
-
+		// Mostra la carta per consola.
+		restaurant.mostraCarta();
 		
-		/* PRENDRE COMANDA */
+		int preuTotal = prenComanda(carta, plats_preus);
+		
+		
+		calculaBitllets(preuTotal);
+	
+	}
 
+	
+	// Prendre comanda
+	public static int prenComanda(List<String> carta, HashMap<String, Integer> plats_preus) {
+		
 		Scanner clientInput   = new Scanner(System.in);
 		List <String> comanda = new ArrayList<>();
-
+		
 		int preuTotal      = 0;
 		int seguirDemanant = 1;
 		String platDemanat = "";
-
+		
 		while (seguirDemanant != 0) {
 			System.out.println("\nQuè vols menjar?");
 			try {
@@ -55,10 +59,10 @@ public class Fase3App {
 					System.out.println("Ho sentim, no tenim aquest plat al menú d'avui.");
 					continue;
 				}
-
+				
 				System.out.println("Alguna cosa més? (No: 0 / Sí: qualsevol altre número)");
 				seguirDemanant = clientInput.nextInt();
-
+				
 			} catch (Exception e) {
 				// Esborra la última comanda per tornar al principi del bucle i evitar repeticions.
 				preuTotal -= plats_preus.get(platDemanat);
@@ -68,12 +72,14 @@ public class Fase3App {
 			}
 		}
 		clientInput.close();
-
-		System.out.println("\nHas demanat: " + comanda + "\nEl preu total és: " + preuTotal + " €");
-
-
-		/* CALCULA AMB QUINS BITLLETS PAGAR */
-
+		
+		System.out.println("\nHas demanat: " + comanda + "\nEl preu total és: " + preuTotal + " €\n");
+		return preuTotal;
+	}
+	
+	// Calcula amb quins bitllets pagar.
+	public static void calculaBitllets(int preuTotal) {
+		
 		int cincEU      = 5;
 		int deuEU       = 10;
 		int vintEU      = 20;
@@ -113,5 +119,4 @@ public class Fase3App {
 		System.out.println("Bitllets de 5:   " + bitlletsDe5);
 		
 	}
-
 }
