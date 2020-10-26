@@ -3,20 +3,7 @@ import java.util.List;
 
 public class Fase1 {
 
-	public static void main(String[] args) {
-		
-		int cincEU;
-		int deuEU;
-		int vintEU;
-		int cinquantaEU;
-		int centEU;
-		int dosCentsEU;
-		int cincCentsEU;
-		int total;
-		
-		List <String>  menu = new ArrayList<>();
-		List <Integer> preu = new ArrayList<>();
-		
-	}
-
+		// Un array pel menú i un pels preus.
+	List<String> carta   = new ArrayList<>();
+	List<Integer> preus  = new ArrayList<>();
 }

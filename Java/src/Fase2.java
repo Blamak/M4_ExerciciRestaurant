@@ -6,43 +6,56 @@ import java.util.Scanner;
 public class Fase2 {
 
 	public static void main(String[] args) {
-		
-		List <String>  menu  = new ArrayList<>();
-		List <Integer> preus = new ArrayList<>();
-		
-		HashMap <String, Integer> plats_preus = new HashMap<>();
-		plats_preus.put("Carpaccio", 10);
-		plats_preus.put("Amanida", 9);
-		plats_preus.put("Pizza", 20);
-		plats_preus.put("Pasta", 15);
-		plats_preus.put("Butifarra", 30);
-		plats_preus.put("Flam", 8);
-		plats_preus.put("Fruita", 7);
-		plats_preus.put("Gelat", 6);
-		
-		for(HashMap.Entry<String, Integer> plat_preu : plats_preus.entrySet()) {
-			menu.add(plat_preu.getKey());
+
+		// Arrays pel menÃº i el preus.
+		List<String> carta = new ArrayList<>();
+		List<Integer> preus = new ArrayList<>();
+
+		/*
+		 * Diccionari de dades per crear plats amb el preu corresponent; 
+		 * clau: plat, valor: preu.
+		 */
+		HashMap<String, Integer> plats_preus = new HashMap<>();
+		plats_preus.put("Carpaccio", 150);
+		plats_preus.put("Amanida", 15);
+		plats_preus.put("Pizza", 200);
+		plats_preus.put("Pasta", 250);
+		plats_preus.put("Butifarra", 300);
+		plats_preus.put("Flam", 25);
+		plats_preus.put("Fruita", 35);
+		plats_preus.put("Gelat", 45);
+
+		// Omplir els arrays "carta" i "preus" amb les entrades de "plats_preus".
+		for (HashMap.Entry<String, Integer> plat_preu : plats_preus.entrySet()) {
+			carta.add(plat_preu.getKey());
 			preus.add(plat_preu.getValue());
 		}
-		
-		System.out.println("El nostre menú:");
-		for (int i = 0; i < menu.size(); i++) {
-			System.out.println(menu.get(i) + " - " + preus.get(i) + "€");
+
+		// Mostrar el menÃº per consola.
+		System.out.println("La nostre carta:");
+		for (int i = 0; i < carta.size(); i++) {
+			System.out.println(carta.get(i) + " - " + preus.get(i) + "â‚¬");
 		}
-		
-		// Prendre comanda:
-		Scanner client        = new Scanner(System.in);
-		List <String> comanda = new ArrayList<>(); 
-		int seguirDemanant    = 1;
-		
-		System.out.println("Què voleu menjar?");
+
+		/* PRENDRE COMANDA */
+
+		// Objecte de la classe Scanner per llegir les dades introduides pel client.
+		Scanner clientInput = new Scanner(System.in);
+
+		List<String> comanda = new ArrayList<>(); // Array amb els plats demanats pel client
+		int seguirDemanant = 1; // Variable que si canvia a 0 aturarÃ  el while loop â†“
+
+		System.out.println("QuÃ¨ voleu menjar?");
 		while (seguirDemanant != 0) {
-			comanda.add(client.next());
-			System.out.println("Alguna cosa més? Sí=1/No=0");
-			seguirDemanant = client.nextInt();
+			// Omplir l'array "comanda" amb els inputs del client.
+			comanda.add(clientInput.next());
+			// Preguntar si es vol seguir demanant.
+			System.out.println("Alguna cosa mÃ©s? SÃ­=1/No=0");
+			seguirDemanant = clientInput.nextInt();
 		}
-		client.close();
-		
+		// Un cop trencat el while, tancar el Scanner.
+		clientInput.close();
+
 		System.out.println(comanda);
 
 	}
