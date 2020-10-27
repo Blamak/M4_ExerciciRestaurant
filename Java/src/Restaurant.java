@@ -15,27 +15,10 @@ public class Restaurant {
 		this.preus = preus;
 	}
 
-	// getters i setters
-	public List<String> getCarta() {
-		return carta;
-	}
 
-	public void setCarta(List<String> carta) {
-		this.carta = carta;
+/*                      -----     MÈTODES D'INSTÀNCIA      -----                        */
 
-	}
-
-	public List<Integer> getPreus() {
-		return preus;
-	}
-
-	public void setPreus(List<Integer> preus) {
-		this.preus = preus;
-	}
-
-	/* -------- MÈTODES -------- */
-
-	// Omplir la carta i elps preus mitjançant un diccionari.
+	// Omplir la carta i els preus mitjançant un diccionari de dades.
 	public void ompleCartaIPreus(HashMap<String, Integer> plats_preus) {
 
 		for (HashMap.Entry<String, Integer> plat_preu : plats_preus.entrySet()) {
@@ -44,13 +27,18 @@ public class Restaurant {
 		}
 	}
 
-	// Mostrar la carta i preus per consola.
+	/* Mostrar la carta i preus per consola iterant sobre els dos arrays, 
+	  que estan sincronitzats - al primer plat li correspon el primer preu, etc. */
 	public void mostraCarta() {
-		System.out.println("La nostre carta:\n");
+		System.out.println("La nostra carta:\n");
+		
 		for (int i = 0; i < this.carta.size(); i++) {
-			// Alinear els preus de la carta.
+			/* Abans d'imprimir, per alinear verticalment els preus de la carta
+			 * afegim espais en funció de la llargada del nom del plat.
+			 */
 			int espais = 10 - this.carta.get(i).length();
 			String espaisMesGuio = new String(new char[espais]).replace("/0", " ") + "- ";
+			
 			System.out.println(this.carta.get(i) + espaisMesGuio + this.preus.get(i) + " €");
 		}
 	}

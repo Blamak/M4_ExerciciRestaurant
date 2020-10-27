@@ -5,16 +5,22 @@ import java.util.Scanner;
 
 public class Fase2 {
 
+	/**
+	 * En aquest projecte hi ha dos mètodes main, a Fase2 i Fase3,
+	 * només per complir amb els requeriments de l'exercici. 
+	 * 
+	 * A la Fase3 s'intenta estructurar el codi en mètodes i classes,
+	 * també complint amb el requeriments.
+	 */
+	
 	public static void main(String[] args) {
 
 		// Arrays pel menú i el preus.
-		List<String> carta = new ArrayList<>();
+		List<String> carta  = new ArrayList<>();
 		List<Integer> preus = new ArrayList<>();
 
-		/*
-		 * Diccionari de dades per crear plats amb el preu corresponent; 
-		 * clau: plat, valor: preu.
-		 */
+		/* Diccionari de dades per crear plats amb el preu corresponent; 
+		    clau: plat, valor: preu. */
 		HashMap<String, Integer> plats_preus = new HashMap<>();
 		plats_preus.put("Carpaccio", 150);
 		plats_preus.put("Amanida", 15);
@@ -36,10 +42,11 @@ public class Fase2 {
 		for (int i = 0; i < carta.size(); i++) {
 			System.out.println(carta.get(i) + " - " + preus.get(i) + "€");
 		}
+		
 
-		/* PRENDRE COMANDA */
+		/*    ---      PRENDRE COMANDA     ---         */
 
-		// Objecte de la classe Scanner per llegir les dades introduides pel client.
+		// Objecte per llegir les dades introduïdes pel client.
 		Scanner clientInput = new Scanner(System.in);
 
 		List<String> comanda = new ArrayList<>(); // Array amb els plats demanats pel client
