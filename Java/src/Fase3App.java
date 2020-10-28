@@ -10,7 +10,7 @@ public class Fase3App {
 
 	/**
 	 * En aquesta fase de l'exercici es crea una instància de la classe adjunta Restaurant.
-	 * La carta amb preus es popula i es mostra per consola mitjançant 
+	 * La carta amb preus es pobla i es mostra per consola mitjançant 
 	 * els mètodes d'instància ompleCartaIPreus() i mostraCarta().
 	 * 
 	 * Hi ha a més els mètodes estàtics de la classe Fase3App:
@@ -29,7 +29,7 @@ public class Fase3App {
 		Restaurant restaurantFase3 = new Restaurant(carta, preus);
 
 		/* Diccionari de dades per crear plats amb el preu corresponent; 
-		    			clau: plat, valor: preu. */
+		   clau: plat, valor: preu. */
 		HashMap<String, Integer> plats_preus = new HashMap<>();
 		plats_preus.put("carpaccio", 150);
 		plats_preus.put("amanida", 15);
@@ -97,7 +97,7 @@ public class Fase3App {
 				preuTotal -= plats_preus.get(platDemanat);
 				comanda.remove(comanda.size() - 1);
 				
-				System.out.println("Has introduït un valor erroni.\nSi us plau, repeteix l'última comanda.");
+				System.out.println("\nHas introduït un valor erroni.\nSi us plau, repeteix l'última comanda.");
 			}
 		}
 		

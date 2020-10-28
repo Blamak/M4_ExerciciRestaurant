@@ -34,8 +34,7 @@ public class Restaurant {
 		
 		for (int i = 0; i < this.carta.size(); i++) {
 			/* Abans d'imprimir, per alinear verticalment els preus de la carta
-			 * afegim espais en funció de la llargada del nom del plat.
-			 */
+			   afegim espais en funció de la llargada del nom del plat. */
 			int espais = 10 - this.carta.get(i).length();
 			String espaisMesGuio = new String(new char[espais]).replace("/0", " ") + "- ";
 			
