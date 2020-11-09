@@ -91,7 +91,7 @@ public class Fase3App {
 				
 			} catch (IllegalArgumentException i) {
 				System.out.println("Ho sentim, no tenim aquest plat al menú d'avui.");
-				continue;
+				
 			} catch (InputMismatchException e) {
 				clientInput.next(); // Evita que l'input incorrecte s'assigni en la propera iteració.
 				
