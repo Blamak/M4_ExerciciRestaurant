@@ -78,8 +78,7 @@ public class Fase3App {
 				
 				if (!carta.contains(platDemanat)) {
 					// Si el plat no és dins la carta, informar i tornar al principi del loop.
-					System.out.println("Ho sentim, no tenim aquest plat al menú d'avui.");
-					continue;
+					throw new IllegalArgumentException("");
 				} else {
 					// Afegir el plat demanat a la comanda i sumar al preu final.			 
 					comanda.add(platDemanat);
@@ -90,6 +89,9 @@ public class Fase3App {
 				System.out.println("Alguna cosa més? (No: 0 / Sí: qualsevol altre número)");
 				seguirDemanant = clientInput.nextInt();
 				
+			} catch (IllegalArgumentException i) {
+				System.out.println("Ho sentim, no tenim aquest plat al menú d'avui.");
+				continue;
 			} catch (InputMismatchException e) {
 				clientInput.next(); // Evita que l'input incorrecte s'assigni en la propera iteració.
 				
